@@ -1,2 +1,6 @@
 # This file contains the output files that need %exclude. Full path
 # names, one per line.
+/usr/lib/python2.7/site-packages/jupyter.py
+/usr/lib/python2.7/site-packages/jupyter.pyc
+/usr/lib/python3.6/site-packages/__pycache__/jupyter.cpython-36.pyc 
+/usr/lib/python3.6/site-packages/jupyter.py 

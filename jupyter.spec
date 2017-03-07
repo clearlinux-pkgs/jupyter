@@ -4,13 +4,18 @@
 #
 Name     : jupyter
 Version  : 1.0.0
-Release  : 3
+Release  : 4
 URL      : https://pypi.python.org/packages/c9/a9/371d0b8fe37dd231cf4b2cff0a9f0f25e98f3a73c3771742444be27f2944/jupyter-1.0.0.tar.gz
 Source0  : https://pypi.python.org/packages/c9/a9/371d0b8fe37dd231cf4b2cff0a9f0f25e98f3a73c3771742444be27f2944/jupyter-1.0.0.tar.gz
 Summary  : Jupyter metapackage. Install all the Jupyter components in one go.
 Group    : Development/Tools
 License  : BSD-3-Clause
 Requires: jupyter-python
+Requires: ipykernel
+Requires: ipywidgets
+Requires: nbconvert
+Requires: notebook
+Requires: qtconsole
 BuildRequires : ipykernel
 BuildRequires : ipywidgets
 BuildRequires : jupyter_console
@@ -40,12 +45,12 @@ python components for the jupyter package.
 
 %build
 export LANG=C
-export SOURCE_DATE_EPOCH=1487703184
+export SOURCE_DATE_EPOCH=1488922595
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1487703184
+export SOURCE_DATE_EPOCH=1488922595
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force

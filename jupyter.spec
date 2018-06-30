@@ -4,7 +4,7 @@
 #
 Name     : jupyter
 Version  : 1.0.0
-Release  : 17
+Release  : 18
 URL      : http://pypi.debian.net/jupyter/jupyter-1.0.0.tar.gz
 Source0  : http://pypi.debian.net/jupyter/jupyter-1.0.0.tar.gz
 Summary  : Jupyter metapackage. Install all the Jupyter components in one go.

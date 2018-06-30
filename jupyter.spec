@@ -4,13 +4,14 @@
 #
 Name     : jupyter
 Version  : 1.0.0
-Release  : 18
+Release  : 19
 URL      : http://pypi.debian.net/jupyter/jupyter-1.0.0.tar.gz
 Source0  : http://pypi.debian.net/jupyter/jupyter-1.0.0.tar.gz
 Summary  : Jupyter metapackage. Install all the Jupyter components in one go.
 Group    : Development/Tools
 License  : BSD-3-Clause
 Requires: jupyter-python3
+Requires: jupyter-license
 Requires: jupyter-python
 Requires: ipykernel
 Requires: ipywidgets
@@ -24,7 +25,6 @@ BuildRequires : nbconvert
 BuildRequires : notebook
 BuildRequires : pbr
 BuildRequires : pip
-
 BuildRequires : python3-dev
 BuildRequires : qtconsole
 BuildRequires : setuptools
@@ -32,6 +32,14 @@ BuildRequires : setuptools
 %description
 # Jupyter
 Jupyter metapackage for installation and docs.
+
+%package license
+Summary: license components for the jupyter package.
+Group: Default
+
+%description license
+license components for the jupyter package.
+
 
 %package python
 Summary: python components for the jupyter package.
@@ -59,11 +67,13 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1522425882
+export SOURCE_DATE_EPOCH=1530328505
 python3 setup.py build -b py3
 
 %install
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/doc/jupyter
+cp LICENSE %{buildroot}/usr/share/doc/jupyter/LICENSE
 python3 -tt setup.py build -b py3 install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -72,11 +82,14 @@ echo ----[ mark ]----
 %files
 %defattr(-,root,root,-)
 
+%files license
+%defattr(-,root,root,-)
+/usr/share/doc/jupyter/LICENSE
+
 %files python
 %defattr(-,root,root,-)
 
 %files python3
 %defattr(-,root,root,-)
-%exclude /usr/lib/python3.6/site-packages/__pycache__/jupyter.cpython-36.pyc
-%exclude /usr/lib/python3.6/site-packages/jupyter.py
+%exclude /usr/lib/python3.7/site-packages/jupyter.py
 /usr/lib/python3*/*

@@ -4,10 +4,10 @@
 #
 Name     : jupyter
 Version  : 1.0.0
-Release  : 31
+Release  : 32
 URL      : http://pypi.debian.net/jupyter/jupyter-1.0.0.tar.gz
 Source0  : http://pypi.debian.net/jupyter/jupyter-1.0.0.tar.gz
-Summary  : Jupyter metapackage. Install all the Jupyter components in one go.
+Summary  : A language-agnostic web-based interactive shell/notebook server.
 Group    : Development/Tools
 License  : BSD-3-Clause
 Requires: jupyter-license = %{version}-%{release}
@@ -27,8 +27,7 @@ BuildRequires : notebook
 BuildRequires : qtconsole
 
 %description
-# Jupyter
-Jupyter metapackage for installation and docs.
+Install the Jupyter system, including the notebook, qtconsole, and the IPython kernel.
 
 %package license
 Summary: license components for the jupyter package.
@@ -51,6 +50,7 @@ python components for the jupyter package.
 Summary: python3 components for the jupyter package.
 Group: Default
 Requires: python3-core
+Provides: pypi(jupyter)
 
 %description python3
 python3 components for the jupyter package.
@@ -65,7 +65,8 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1575572022
+export SOURCE_DATE_EPOCH=1583162597
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "

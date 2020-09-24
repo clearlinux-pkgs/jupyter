@@ -4,7 +4,7 @@
 #
 Name     : jupyter
 Version  : 1.0.0
-Release  : 32
+Release  : 33
 URL      : http://pypi.debian.net/jupyter/jupyter-1.0.0.tar.gz
 Source0  : http://pypi.debian.net/jupyter/jupyter-1.0.0.tar.gz
 Summary  : A language-agnostic web-based interactive shell/notebook server.

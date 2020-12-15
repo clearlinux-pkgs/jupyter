@@ -4,7 +4,7 @@
 #
 Name     : jupyter
 Version  : 1.0.0
-Release  : 38
+Release  : 39
 URL      : http://pypi.debian.net/jupyter/jupyter-1.0.0.tar.gz
 Source0  : http://pypi.debian.net/jupyter/jupyter-1.0.0.tar.gz
 Summary  : Jupyter metapackage. Install all the Jupyter components in one go.
@@ -72,7 +72,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1607984674
+export SOURCE_DATE_EPOCH=1607995905
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -91,8 +91,8 @@ echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
 ## Remove excluded files
-rm -f %{buildroot}/usr/lib/python3.8/site-packages/__pycache__/jupyter.cpython-38.pyc
-rm -f %{buildroot}/usr/lib/python3.8/site-packages/jupyter.py
+rm -f %{buildroot}/usr/lib/python3*/site-packages/__pycache__/jupyter.cpython-3*.pyc
+rm -f %{buildroot}/usr/lib/python3*/site-packages/jupyter.py
 
 %files
 %defattr(-,root,root,-)
